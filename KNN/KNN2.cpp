@@ -136,7 +136,8 @@ char* Classificar(flor** memoria, int sizeM) {
                 if (indx != -1) {
                     // Se sim atualizar o valor int em 1 / distância;
                     *((float*)(espe + (indx * (4 + 32)))) += 1 / memoria[I]->distancia;
-                } else {
+                    break;
+                } else if (II + 1 >= size) {
                     // se não adicionar uma nova especie ao vetor;
                     *((float*)(espe + (size * (4 + 32)))) = 1 / memoria[I]->distancia;
                     copiarSTR(memoria[I]->especie,  (espe + 4 + (size * (4 + 32))));
@@ -153,8 +154,9 @@ char* Classificar(flor** memoria, int sizeM) {
     char* resultado;
     int peso = -1;
     // pega o maior valor
+    printf("\n%d\n", size);
     for (int I = 0; I < size; I++) {
-       
+        printf("%s, ", (espe + 4 + (I * (4 + 32))));
         if (*((float*)(espe + (I * (4 + 32)))) > peso) {
             resultado = (espe + 4 + (I * (4 + 32)));
         }
