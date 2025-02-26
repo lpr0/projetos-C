@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "listaOrdenadaPedida.h"
 
+// Lucas Pereira Rubens
 
 t_ordered_list* create_ordered_list(int max) {
     t_ordered_list* lis = (t_ordered_list*) malloc(sizeof(t_ordered_list));
